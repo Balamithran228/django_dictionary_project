@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dictionay web</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 30%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid orange;
+        }
+
+        input[type='submit'] {
+            width: 30%;
+            padding: 5px;
+            background: orange;
+            color: white;
+            text-transform: uppercase;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .div2 {
+    position: relative;
+    left: 500px;
+    background-color: orange;
+    bottom: -170px;
+    width: 500px;
+    border: 15px solid orangered;
+    padding: 50px;
+    margin: 5px;
+}
+    </style>
+</head>
+<body>
+
+  <div id="main">
+
+        <h1 style="color: orange; text-align: center">BM DICTIONARY</h1>
+         <form method="GET">
+             <label for="word"></label>
+             <input type="text" name="word" id="word" value="{{ request.GET.word }}" placeholder="Enter the word here..."><br>
+             <input type="submit" value="Submit">
+         </form>
+
+      </div>
+<div class="div2">
+     {% if result %}
+            <h3 style="color: lightgreen">WORD: {{ result.a }}</h3>
+            <h3 style="color: green">SYNONYMS:</h3><h3 style="color: darkgreen">{{ result.meaning }}</h3>
+            <h3 style="color: green">ANTONYMS:</h3><h3 style="color: darkgreen">{{ result.Antonyms }}</h3>
+         {% endif %}
+</div>
+
+</body>
+</html>
